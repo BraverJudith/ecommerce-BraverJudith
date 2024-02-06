@@ -68,5 +68,6 @@ if (carro) {
         mensajeFinal.classList.remove("disabled")
         mensajeFinal.style.display = "block"
         localStorage.removeItem("miCarrito")
+        location.href = "catalogo.html"
     });
 

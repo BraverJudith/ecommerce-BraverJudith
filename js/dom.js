@@ -6,7 +6,7 @@ const botonCarrito = document.querySelector("img#carrito")
 const contenedor = document.querySelector("section#card")
 const inputBuscar = document.querySelector("input[type=search]")
 
-// Armar HTML dinámico
+
 function retornarCardHTML(producto) {
     return `<div class="card"> 
                 <div><h1><img src="${producto.imagen}"></h1></div>
@@ -38,7 +38,6 @@ function activarClickEnBotones() {
             if (articuloElegido) {
                 carro.push(articuloElegido);
                 localStorage.setItem("miCarrito", JSON.stringify(carro));
-                alert(articuloElegido.nombre + " ha sido agregado al carrito.");
             } else {
                 console.error("No se encontró el artículo con el ID:", idProducto);
             }
