@@ -42,7 +42,7 @@ function actualizarTablaCarrito() {
 
     const total = calcularTotalCarrito();
 
-    tableBody.innerHTML += `<tr><td class="presupuestoTotal" colspan="2">TOTAL DE LA COMPRA</td><td></td>$<td>${total}</td></tr>`
+    tableBody.innerHTML += `<tr><td class="presupuestoTotal" colspan="3">TOTAL DE LA COMPRA</td><td></td>$<td>${total}</td></tr>`
 }
 
 function calcularTotalCarrito() {
@@ -59,15 +59,24 @@ if (carro) {
     const total = calcularTotalCarrito()
     tableBody.innerHTML += `<tr><td class="presupuestoTotal" colspan="2">TOTAL DE LA COMPRA</td><td class="precioTotal" colspan="2">$${total}</td></tr>`
 }
-    const formularioCheckout = document.getElementById("formularioCheckout")
+const formularioCheckout = document.getElementById("formularioCheckout")
 
-    formularioCheckout.addEventListener("submit", function(event) {
-        const botonComprar = document.querySelector("#formularioCheckout button")
-        botonComprar.disabled = true;
-        const mensajeFinal = document.getElementById("mensajeFinal")
-        mensajeFinal.classList.remove("disabled")
-        mensajeFinal.style.display = "block"
-        localStorage.removeItem("miCarrito")
-        location.href = "catalogo.html"
-    });
+formularioCheckout.addEventListener("submit", function (event) {
+    event.preventDefault();
+    const botonComprar = document.querySelector("#formularioCheckout button")
+    botonComprar.disabled = true
+    botonComprar.classList.add("btnDisabled")
+    const mensajeFinal = document.getElementById("mensajeFinal")
+    mensajeFinal.classList.remove("disabled")
+    mensajeFinal.style.display = "block"
 
+    localStorage.removeItem("miCarrito")
+    const table = document.querySelector("table")
+    const tableBody = table.querySelector("tbody")
+    tableBody.innerHTML = `<tr>
+            <td>Carrito vacío</td>
+            <td>Agrega artículos para poder verlos</td>
+            <td>$00</td>
+            <td><button id="producto.id" class="boton-eliminar" title="Eliminar" title="Pulsa para comprar"><img src="../assets/icons/basura.png" alt="Quitar producto"></button></td>
+        </tr>`
+})

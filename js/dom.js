@@ -69,8 +69,6 @@ botonCarrito.addEventListener("mousemove", ()=> {
 botonCarrito.addEventListener("click", ()=> {
     if (carro.length > 0) {
         location.href = "compra.html"
-    } else {
-        alert("🛒 Debes agregar al menos un producto al carrito.")
     }
 })
 

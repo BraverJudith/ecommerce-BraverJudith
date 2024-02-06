@@ -276,7 +276,10 @@ footer div nav ul li a img {
 #formularioCheckout button:hover {
   background-color: #8577c2;
 }
-
+.btnDisabled{
+  pointer-events: none;
+  opacity: 0.2;
+}
 
 @-webkit-keyframes rotate-scale-up {
   0% {
